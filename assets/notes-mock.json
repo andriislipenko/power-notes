@@ -2,7 +2,7 @@
     { 
         "id": "1", 
         "title": "Demo note", 
-        "text": "This note exists for demonstration purposes!\nThis note exists for demonstration purposes!\nThis note exists for demonstration purposes!\nThis note exists for demonstration purposes!\nThis note exists for demonstration purposes!"
+        "text": "This note exists for demonstration purposes!\n  This note exists for demonstration purposes!\nThis note exists for demonstration purposes!\nThis note exists for demonstration purposes!\nThis note exists for demonstration purposes!"
     },
     { 
         "id": "2", 
@@ -21,22 +21,22 @@
     },
     { 
         "id": "5", 
-        "title": "Demo note 3", 
+        "title": "Demo note 5", 
         "text": "This note exists for demonstration purposes!\nThis note exists for demonstration purposes!\nThis note exists for demonstration purposes!"
     },
     { 
         "id": "6", 
-        "title": "Loooooong title demo note 4", 
+        "title": "Demo note 6", 
         "text": "This note exists for demonstration purposes!\nThis note exists for demonstration purposes!\nThis note exists for demonstration purposes!"
     },
     { 
         "id": "7", 
-        "title": "Demo note 3", 
+        "title": "Demo note 7", 
         "text": "This note exists for demonstration purposes!\nThis note exists for demonstration purposes!\nThis note exists for demonstration purposes!"
     },
     { 
         "id": "8", 
-        "title": "Loooooong title demo note 4", 
+        "title": "Demo note 8", 
         "text": "This note exists for demonstration purposes!\nThis note exists for demonstration purposes!\nThis note exists for demonstration purposes!"
     }
 ]
