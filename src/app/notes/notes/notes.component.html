@@ -1,6 +1,3 @@
 <div class="notes-container">
-    <div *ngFor="let note of notes">
-        <div>{{note.id}}: {{note.title}}</div>
-        <pre>{{note.text}}</pre>
-    </div>
+    <app-note *ngFor="let note of notes" [note]="note"></app-note>
 </div>
