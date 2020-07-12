@@ -1,0 +1,17 @@
+[
+    { 
+        "id": "1", 
+        "title": "Demo note", 
+        "text": "This note exists for demonstration purposes!\nThis note exists for demonstration purposes!\nThis note exists for demonstration purposes!"
+    },
+    { 
+        "id": "2", 
+        "title": "Demo note 2", 
+        "text": "This note exists for demonstration purposes!\nThis note exists for demonstration purposes!\nThis note exists for demonstration purposes!"
+    },
+    { 
+        "id": "3", 
+        "title": "Demo note 3", 
+        "text": "This note exists for demonstration purposes!\nThis note exists for demonstration purposes!\nThis note exists for demonstration purposes!"
+    }
+]
