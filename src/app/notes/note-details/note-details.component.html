@@ -1,0 +1,11 @@
+<div class="note-details-container" *ngIf="note">
+    <div class="title-row">
+        <a class="back-button" (click)="goBack()">
+            <fa-icon [icon]="faArrowLeft"></fa-icon>
+        </a>
+        <span class="title">{{note.title}}</span>
+    </div>
+    <div class="text-container">
+        <div class="text" [innerText]="note.text"></div>
+    </div>
+</div>
