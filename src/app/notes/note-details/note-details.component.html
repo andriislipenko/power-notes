@@ -1,11 +1,33 @@
-<div class="note-details-container" *ngIf="note">
-    <div class="title-row">
+<div class="note-details-container">
+    <div class="controls">
         <a class="back-button" (click)="goBack()">
-            <fa-icon [icon]="faArrowLeft"></fa-icon>
+            <fa-icon [icon]="faChevronLeft"></fa-icon>
         </a>
-        <span class="title">{{note.title}}</span>
+        <fa-icon
+            class="right" 
+            *ngIf="isLoading"
+            [icon]="faCircleNotch" 
+            [spin]="true" 
+        ></fa-icon>
     </div>
-    <div class="text-container">
-        <div class="text" [innerText]="note.text"></div>
-    </div>
+    <form [formGroup]="noteForm">
+        <div class="title-row">
+            <input
+                name="title" 
+                type="text"
+                placeholder="Title"
+                formControlName="title"
+                class="title"
+            />
+        </div>
+        <div class="text-container">
+            <textarea
+                #text
+                name="text"
+                placeholder="Text"
+                class="text"
+                formControlName="text"
+            ></textarea>
+        </div>
+    </form>
 </div>

@@ -1,18 +1,32 @@
 .note-details-container {
     padding: 0 5px;
 
-    .title-row {
+    .controls {
+        margin-bottom: 10px;
+        font-size: x-large;
+
         .back-button {
-            font-size: x-large;
             cursor: pointer;
             color: #333333;
             margin-right: 15px;
             vertical-align: text-bottom;
         }
 
+        .right {
+            float: right;
+            color: gold;
+        }
+    }
+
+    .title-row {
         .title {
             font-size: xx-large;
             word-break: break-all;
+            width: 100%;
+            outline: none;
+            border: none;
+            border-bottom: 1px solid #eeeeee;
+            color: #000000cc;
         }
     }
 
@@ -22,6 +36,14 @@
         .text {
             white-space: pre-wrap;
             word-break: break-all;
+            width: 100%;
+            font-family: inherit;
+            resize: none;
+            outline: none;
+            border: none;
+            overflow: hidden;
+            font-size: medium;
+            color: #000000cc;
         }
     }
 }

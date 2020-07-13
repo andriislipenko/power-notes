@@ -18,6 +18,6 @@ export class NoteComponent implements OnInit {
     ngOnInit(): void {}
 
     public goToDetails(): void {
-        this.router.navigate([`${this.note.id}`], { relativeTo: this.route });
+        this.router.navigate([`note/${this.note.id}`], { relativeTo: this.route });
     }
 }

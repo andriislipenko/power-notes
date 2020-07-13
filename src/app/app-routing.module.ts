@@ -5,7 +5,8 @@ import { NoteDetailsComponent } from "./notes/note-details/note-details.componen
 
 const routes: Routes = [
     { path: "notes", component: NotesComponent },
-    { path: "notes/:noteId", component: NoteDetailsComponent },
+    { path: "notes/note", component: NoteDetailsComponent },
+    { path: "notes/note/:noteId", component: NoteDetailsComponent },
     { path: "", redirectTo: "notes", pathMatch: "full" },
     { path: "**", redirectTo: "notes" },
 ];
