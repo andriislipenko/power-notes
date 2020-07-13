@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { NotesService } from '../notes.service';
 import { Note } from '../entities/note';
-import { faCircleNotch, faChevronLeft, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faCircleNotch, faChevronLeft, faCheck, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { IconDefinition } from '@fortawesome/fontawesome-common-types';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { finalize } from 'rxjs/operators';
@@ -21,6 +21,7 @@ export class NoteDetailsComponent implements OnInit, AfterViewInit {
     public readonly faChevronLeft: IconDefinition = faChevronLeft;
     public readonly faCircleNotch: IconDefinition = faCircleNotch;
     public readonly faCheck: IconDefinition = faCheck;
+    public readonly faTrashAlt: IconDefinition = faTrashAlt;
 
     public currentNoteId: number;
     public note: Note;
@@ -57,6 +58,16 @@ export class NoteDetailsComponent implements OnInit, AfterViewInit {
         } else {
             this.addNote();
         }
+    }
+
+    public deleteNote(): void {
+        if (this.isLoading) return;
+        
+        this.isLoading = true;
+
+        this.notesService.deleteNote(this.note.id)
+            .pipe(finalize(() => this.isLoading = false))
+            .subscribe(() => this.goBack());
     }
 
     public goBack(): void {

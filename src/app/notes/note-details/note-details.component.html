@@ -10,6 +10,14 @@
             [spin]="true" 
         ></fa-icon>
         <a
+            *ngIf="note?.id"
+            class="delete-button right"
+            [class.disabled]="isLoading"
+            (click)="deleteNote()"
+        >
+            <fa-icon [icon]="faTrashAlt"></fa-icon>
+        </a>
+        <a
             class="save-button right" 
             [class.disabled]="isDisabled()"
             (click)="saveNote()"

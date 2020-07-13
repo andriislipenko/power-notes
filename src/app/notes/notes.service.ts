@@ -6,9 +6,6 @@ import { Note } from "./entities/note";
 @Injectable()
 export class NotesService {
     private notesUrl = 'api/notes';
-    private headers: HttpHeaders = new HttpHeaders({
-        'Content-Type': 'application/json'
-    });
 
     constructor(private http: HttpClient) {}
 
@@ -21,10 +18,14 @@ export class NotesService {
     }
 
     public addNote(note: Note): Observable<Note> {
-        return this.http.post<Note>(this.notesUrl, note, { headers: this.headers });
+        return this.http.post<Note>(this.notesUrl, note);
     }
 
     public updateNote(note: Note): Observable<Note> {
-        return this.http.put<Note>(this.notesUrl, note, { headers: this.headers });
+        return this.http.put<Note>(this.notesUrl, note);
+    }
+
+    public deleteNote(noteId: number): Observable<any> {
+        return this.http.delete<any>(`${this.notesUrl}/${noteId}`);
     }
 }

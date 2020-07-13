@@ -17,9 +17,17 @@
             color: gold;
         }
 
+        .save-button, .delete-button {
+            cursor: pointer;
+            padding-left: 10px;
+        }
+
         .save-button {
             color: gold;
-            cursor: pointer;
+        }
+
+        .delete-button {
+            color: tomato;
         }
 
         .disabled {
