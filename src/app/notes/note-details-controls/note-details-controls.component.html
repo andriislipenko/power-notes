@@ -1,5 +1,5 @@
 <div class="node-details-controls-container">
-    <a class="back-button" (click)="onBack()">
+    <a class="back-button" title="back" (click)="onBack()">
         <fa-icon [icon]="faChevronLeft"></fa-icon>
     </a>
     <fa-icon
@@ -9,18 +9,39 @@
         [spin]="true" 
     ></fa-icon>
     <a
-        *ngIf="noteId"
+        *ngIf="isViewing()"
         class="delete-button right"
+        title="delete note"
         [class.disabled]="loading"
         (click)="onDelete()"
     >
         <fa-icon [icon]="faTrashAlt"></fa-icon>
     </a>
     <a
-        class="save-button right" 
-        [class.disabled]="disabled"
-        (click)="onSave()"
+        *ngIf="isViewing()"
+        class="done-button right"
+        title="done"
+        [class.undone]="!note.done"
+        (click)="onDone()"
     >
-        <fa-icon [icon]="faCheck"></fa-icon>
+        <fa-icon [icon]="faCheckDouble"></fa-icon>
+    </a>
+    <a
+    *ngIf="editing"
+    class="save-button right" 
+    title="save changes"
+    [class.disabled]="disabled"
+    (click)="onSave()"
+    >
+    <fa-icon [icon]="faCheck"></fa-icon>
+    </a>
+    <a
+        *ngIf="editing"
+        class="undo-button right"
+        title="undo all changes"
+        [class.disabled]="disabled"
+        (click)="onUndoEdit()"
+    >
+        <fa-icon [icon]="faUndo"></fa-icon>
     </a>
 </div>

@@ -22,6 +22,7 @@ export class NoteDetailsComponent implements OnInit, AfterViewInit {
     public noteForm: FormGroup;
 
     public isLoading: boolean = false;
+    public onEdit: boolean = false;
 
     constructor(
         private route: ActivatedRoute,
@@ -63,12 +64,35 @@ export class NoteDetailsComponent implements OnInit, AfterViewInit {
             .subscribe(() => this.goBack());
     }
 
+    public makeDone(): void {
+        if (this.isLoading) return;
+
+        this.isLoading = true;
+
+        let noteUpdate: Note = { ...this.note };
+        noteUpdate.done = !noteUpdate.done;
+
+        this.notesService.updateNote(noteUpdate)
+            .pipe(finalize(() => this.isLoading = false))
+            .subscribe(() => {
+                this.note = noteUpdate;
+            });
+    }
+
     public goBack(): void {
         this.location.back();
     }
 
     public isDisabled(): boolean {
         return this.noteForm.invalid || this.isLoading;
+    }
+
+    public setEditStatus(edit: boolean, undo:boolean = false): void {
+        this.onEdit = edit;
+
+        if (!edit && undo) {
+            this.setForm(this.note);
+        }
     }
 
     private getNote(): void {
@@ -88,6 +112,7 @@ export class NoteDetailsComponent implements OnInit, AfterViewInit {
             .pipe(finalize(() => this.isLoading = false))
             .subscribe((note: Note) => {
                 this.setCurrentNote(note);
+                this.setEditStatus(false);
             })
     }
 
@@ -99,7 +124,10 @@ export class NoteDetailsComponent implements OnInit, AfterViewInit {
 
         this.notesService.updateNote(noteUpdate)
             .pipe(finalize(() => this.isLoading = false))
-            .subscribe()
+            .subscribe(() => {
+                this.note = noteUpdate;
+                this.setEditStatus(false);
+            });
     }
 
     private setCurrentNote(note: Note): void {

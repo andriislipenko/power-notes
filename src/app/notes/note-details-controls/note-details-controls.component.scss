@@ -13,7 +13,7 @@
         color: gold;
     }
 
-    .save-button, .delete-button {
+    .save-button, .delete-button, .undo-button, .done-button {
         cursor: pointer;
         padding-left: 10px;
     }
@@ -22,8 +22,20 @@
         color: gold;
     }
 
+    .undo-button {
+        color: lightsalmon;
+    }
+
     .delete-button {
         color: tomato;
+    }
+
+    .done-button {
+        color: limegreen;
+    }
+
+    .undone {
+        color: lightgray;
     }
 
     .disabled {

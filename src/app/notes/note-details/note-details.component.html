@@ -1,13 +1,15 @@
 <div class="note-details-container">
     <app-note-details-controls
-        [noteId]="note?.id"
+        [note]="note"
         [disabled]="isDisabled()"
         [loading]="isLoading"
+        [editing]="onEdit"
         (back)="goBack()"
         (save)="saveNote()"
         (delete)="deleteNote()"
+        (done)="makeDone()"
+        (undoEdit)="setEditStatus(false, true)"
     ></app-note-details-controls>
-    
     <form [formGroup]="noteForm">
         <div class="title-row">
             <input
@@ -17,6 +19,7 @@
                 formControlName="title"
                 class="title"
                 autocomplete="off"
+                (focus)="setEditStatus(true)"
             />
         </div>
         <div class="text-container">
@@ -26,6 +29,7 @@
                 placeholder="Text"
                 class="text"
                 formControlName="text"
+                (focus)="setEditStatus(true)"
             ></textarea>
         </div>
     </form>
