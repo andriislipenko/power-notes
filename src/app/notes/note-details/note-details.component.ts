@@ -4,9 +4,10 @@ import { Location } from '@angular/common';
 import { NotesService } from '../notes.service';
 import { Note } from '../entities/note';
 import { faCircleNotch, faChevronLeft, faCheck } from '@fortawesome/free-solid-svg-icons';
-import { IconDefinition } from '@fortawesome/fontawesome-common-types'
+import { IconDefinition } from '@fortawesome/fontawesome-common-types';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { finalize } from 'rxjs/operators'
+import { finalize } from 'rxjs/operators';
+import { whiteSpaceValidator } from '../../shared/whitespace-validator';
 
 @Component({
     selector: "app-note-details",
@@ -49,7 +50,7 @@ export class NoteDetailsComponent implements OnInit, AfterViewInit {
     }
 
     public saveNote(): void {
-        if (this.noteForm.invalid || this.isLoading) return;
+        if (this.isDisabled()) return;
 
         if (this.note) {
             this.updateNote();
@@ -60,6 +61,10 @@ export class NoteDetailsComponent implements OnInit, AfterViewInit {
 
     public goBack(): void {
         this.location.back();
+    }
+
+    public isDisabled(): boolean {
+        return this.noteForm.invalid || this.isLoading;
     }
 
     private getNote(): void {
@@ -120,7 +125,7 @@ export class NoteDetailsComponent implements OnInit, AfterViewInit {
 
     private buildForm(): void {
         this.noteForm = this.formBuilder.group({
-            title: ['', Validators.required],
+            title: ['', [Validators.required, whiteSpaceValidator()]],
             text: ['']
         })
     }

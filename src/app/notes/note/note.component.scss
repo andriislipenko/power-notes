@@ -6,17 +6,15 @@ $text-line-height: $text-container-height / 5;
 
 .note-container {
     background-color: $base-background-color;
-    border-radius: 10px;
     cursor: pointer;
     user-select: none;
+    box-shadow: 1px 1px 3px 1px #cccccc;
 
     &:hover {
-        box-shadow: 0 0 2px 1px #cccccc;
+        box-shadow: 1px 2px 3px 2px #cccccc;
     }
 
     .title {
-        border-top-left-radius: inherit;
-        border-top-right-radius: inherit;
         padding: 10px 10px 7px;
         background-color: $title-base-background-color;
 

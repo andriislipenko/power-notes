@@ -11,7 +11,7 @@
         ></fa-icon>
         <a
             class="save-button right" 
-            [class.disabled]="noteForm.invalid || isLoading"
+            [class.disabled]="isDisabled()"
             (click)="saveNote()"
         >
             <fa-icon [icon]="faCheck"></fa-icon>
