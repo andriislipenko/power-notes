@@ -18,6 +18,7 @@ export class NotesService {
     }
 
     public addNote(note: Note): Observable<Note> {
+        note.timestamp = new Date();
         return this.http.post<Note>(this.notesUrl, note);
     }
 

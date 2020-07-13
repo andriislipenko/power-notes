@@ -34,4 +34,20 @@ $text-line-height: $text-container-height / 5;
             line-height: $text-line-height;
         }
     }
+
+    .status-container {
+        padding: 5px;
+        padding-top: 0;
+        font-family: monospace;
+        
+        .timestamp {
+            font-size: x-small;
+        }
+
+        .done {
+            float: right;
+            color: limegreen;
+            font-size: small;
+        }
+    }
 }
