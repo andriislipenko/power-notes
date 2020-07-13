@@ -1,0 +1,37 @@
+.node-details-controls-container {
+    margin-bottom: 10px;
+    font-size: x-large;
+
+    .back-button {
+        cursor: pointer;
+        color: #333333;
+        margin-right: 15px;
+        vertical-align: text-bottom;
+    }
+
+    .spinner {
+        color: gold;
+    }
+
+    .save-button, .delete-button {
+        cursor: pointer;
+        padding-left: 10px;
+    }
+
+    .save-button {
+        color: gold;
+    }
+
+    .delete-button {
+        color: tomato;
+    }
+
+    .disabled {
+        color: lightgray;
+        cursor: not-allowed;
+    }
+
+    .right {
+        float: right;
+    }
+}

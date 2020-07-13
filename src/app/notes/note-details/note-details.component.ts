@@ -3,8 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { NotesService } from '../notes.service';
 import { Note } from '../entities/note';
-import { faCircleNotch, faChevronLeft, faCheck, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
-import { IconDefinition } from '@fortawesome/fontawesome-common-types';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { finalize } from 'rxjs/operators';
 import { whiteSpaceValidator } from '../../shared/whitespace-validator';
@@ -17,11 +15,6 @@ import { whiteSpaceValidator } from '../../shared/whitespace-validator';
 export class NoteDetailsComponent implements OnInit, AfterViewInit {
     @ViewChild('text')
     private textArea: ElementRef;
-
-    public readonly faChevronLeft: IconDefinition = faChevronLeft;
-    public readonly faCircleNotch: IconDefinition = faCircleNotch;
-    public readonly faCheck: IconDefinition = faCheck;
-    public readonly faTrashAlt: IconDefinition = faTrashAlt;
 
     public currentNoteId: number;
     public note: Note;

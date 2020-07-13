@@ -1,0 +1,26 @@
+<div class="node-details-controls-container">
+    <a class="back-button" (click)="onBack()">
+        <fa-icon [icon]="faChevronLeft"></fa-icon>
+    </a>
+    <fa-icon
+        class="spinner" 
+        *ngIf="loading"
+        [icon]="faCircleNotch" 
+        [spin]="true" 
+    ></fa-icon>
+    <a
+        *ngIf="noteId"
+        class="delete-button right"
+        [class.disabled]="loading"
+        (click)="onDelete()"
+    >
+        <fa-icon [icon]="faTrashAlt"></fa-icon>
+    </a>
+    <a
+        class="save-button right" 
+        [class.disabled]="disabled"
+        (click)="onSave()"
+    >
+        <fa-icon [icon]="faCheck"></fa-icon>
+    </a>
+</div>
