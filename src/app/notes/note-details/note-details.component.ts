@@ -121,6 +121,8 @@ export class NoteDetailsComponent implements OnInit, AfterViewInit {
 
         let noteUpdate: Note = this.noteForm.getRawValue();
         noteUpdate.id = this.note.id;
+        noteUpdate.timestamp = this.note.timestamp;
+        noteUpdate.done = this.note.done;
 
         this.notesService.updateNote(noteUpdate)
             .pipe(finalize(() => this.isLoading = false))
