@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { NotesService } from '../notes.service';
 import { Note } from '../entities/note';
-import { faCircleNotch, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { faCircleNotch, faChevronLeft, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { IconDefinition } from '@fortawesome/fontawesome-common-types'
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { finalize } from 'rxjs/operators'
@@ -19,8 +19,9 @@ export class NoteDetailsComponent implements OnInit, AfterViewInit {
 
     public readonly faChevronLeft: IconDefinition = faChevronLeft;
     public readonly faCircleNotch: IconDefinition = faCircleNotch;
+    public readonly faCheck: IconDefinition = faCheck;
 
-    public currentNoteId: string;
+    public currentNoteId: number;
     public note: Note;
 
     public noteForm: FormGroup;
@@ -47,6 +48,16 @@ export class NoteDetailsComponent implements OnInit, AfterViewInit {
         this.startTextAreaAutoResize();
     }
 
+    public saveNote(): void {
+        if (this.noteForm.invalid) return;
+
+        if (this.note) {
+            this.updateNote();
+        } else {
+            this.addNote();
+        }
+    }
+
     public goBack(): void {
         this.location.back();
     }
@@ -57,13 +68,39 @@ export class NoteDetailsComponent implements OnInit, AfterViewInit {
         this.notesService.getNote(this.currentNoteId)
             .pipe(finalize(() => this.isLoading = false))
             .subscribe((note: Note) => {
-                this.note = note;
-                this.setForm(note);
+                this.setCurrentNote(note);
             });
     }
 
+    private addNote(): void {
+        this.isLoading = true;
+
+        this.notesService.addNote(this.noteForm.getRawValue())
+            .pipe(finalize(() => this.isLoading = false))
+            .subscribe((note: Note) => {
+                this.setCurrentNote(note);
+            })
+    }
+
+    private updateNote(): void {
+        this.isLoading = true;
+
+        let noteUpdate: Note = this.noteForm.getRawValue();
+        noteUpdate.id = this.note.id;
+
+        this.notesService.updateNote(noteUpdate)
+            .pipe(finalize(() => this.isLoading = false))
+            .subscribe()
+    }
+
+    private setCurrentNote(note: Note): void {
+        this.note = note;
+        this.setForm(note);
+    }
+
     private getNoteId(): void {
-        this.currentNoteId = this.route.snapshot.paramMap.get('noteId');
+        this.currentNoteId = +this.route.snapshot.paramMap.get('noteId');
+        this.currentNoteId = isNaN(this.currentNoteId) ? null : this.currentNoteId;
     }
 
     private setForm(note: Note): void {

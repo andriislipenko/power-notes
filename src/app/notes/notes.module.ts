@@ -6,12 +6,14 @@ import { NoteComponent } from './note/note.component';
 import { NoteDetailsComponent } from './note-details/note-details.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ControlBarComponent } from './control-bar/control-bar.component';
 
 @NgModule({
     declarations: [
         NotesComponent,
         NoteComponent,
-        NoteDetailsComponent
+        NoteDetailsComponent,
+        ControlBarComponent
     ],
     imports: [
         CommonModule, 

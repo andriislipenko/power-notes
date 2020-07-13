@@ -1,4 +1,5 @@
 .note-details-container {
+    margin: 5px;
     padding: 0 5px;
 
     .controls {
@@ -12,9 +13,22 @@
             vertical-align: text-bottom;
         }
 
+        .spinner {
+            color: gold;
+        }
+
+        .save-button {
+            color: gold;
+            cursor: pointer;
+        }
+
+        .disabled {
+            color: lightgray;
+            cursor: not-allowed;
+        }
+
         .right {
             float: right;
-            color: gold;
         }
     }
 
@@ -54,7 +68,7 @@
         box-shadow: 2px 2px 3px 2px #eeeeee;
 
         width: 75%;
-        margin: auto;
+        margin: 5px auto;
     }
 }
 

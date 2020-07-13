@@ -4,11 +4,18 @@
             <fa-icon [icon]="faChevronLeft"></fa-icon>
         </a>
         <fa-icon
-            class="right" 
+            class="spinner" 
             *ngIf="isLoading"
             [icon]="faCircleNotch" 
             [spin]="true" 
         ></fa-icon>
+        <a
+            class="save-button right" 
+            [class.disabled]="noteForm.invalid || isLoading"
+            (click)="saveNote()"
+        >
+            <fa-icon [icon]="faCheck"></fa-icon>
+        </a>
     </div>
     <form [formGroup]="noteForm">
         <div class="title-row">
@@ -18,6 +25,7 @@
                 placeholder="Title"
                 formControlName="title"
                 class="title"
+                autocomplete="off"
             />
         </div>
         <div class="text-container">

@@ -1,0 +1,15 @@
+.control-bar-container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: lightgray;
+
+    .new-button {
+        padding: 5px;
+        margin-right: 5px;
+        float: right;
+        color: white;
+        font-size: 22px;
+        cursor: pointer;
+    }
+}
