@@ -1,41 +1,41 @@
 [
     { 
-        "id": "1", 
+        "id": 1, 
         "title": "Demo note", 
         "text": "This note exists for demonstration purposes!\n  This note exists for demonstration purposes!\nThis note exists for demonstration purposes!\nThis note exists for demonstration purposes!\nThis note exists for demonstration purposes!"
     },
     { 
-        "id": "2", 
+        "id": 2, 
         "title": "Demo note 2", 
         "text": "This note exists for demonstration purposes!\nThis note exists for demonstration purposes!\nThis note exists for demonstration purposes!"
     },
     { 
-        "id": "3", 
+        "id": 3, 
         "title": "Demo note 3", 
         "text": "This note exists for demonstration purposes!\nThis note exists for demonstration purposes!\nThis note exists for demonstration purposes!"
     },
     { 
-        "id": "4", 
+        "id": 4, 
         "title": "Loooooong title demo note 4", 
         "text": "This note exists for demonstration purposes!\nThis note exists for demonstration purposes!\nThis note exists for demonstration purposes!"
     },
     { 
-        "id": "5", 
+        "id": 5, 
         "title": "Demo note 5", 
         "text": "This note exists for demonstration purposes!\nThis note exists for demonstration purposes!\nThis note exists for demonstration purposes!"
     },
     { 
-        "id": "6", 
+        "id": 6, 
         "title": "Demo note 6", 
         "text": "This note exists for demonstration purposes!\nThis note exists for demonstration purposes!\nThis note exists for demonstration purposes!"
     },
     { 
-        "id": "7", 
+        "id": 7, 
         "title": "Demo note 7", 
         "text": "This note exists for demonstration purposes!\nThis note exists for demonstration purposes!\nThis note exists for demonstration purposes!"
     },
     { 
-        "id": "8", 
+        "id": 8, 
         "title": "Demo note 8", 
         "text": "This note exists for demonstration purposes!\nThis note exists for demonstration purposes!\nThis note exists for demonstration purposes!"
     }
