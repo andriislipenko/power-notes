@@ -27,16 +27,16 @@
         <fa-icon [icon]="faCheckDouble"></fa-icon>
     </a>
     <a
-    *ngIf="editing"
-    class="save-button right" 
-    title="save changes"
-    [class.disabled]="disabled"
-    (click)="onSave()"
+        *ngIf="editing || !note?.id"
+        class="save-button right" 
+        title="save changes"
+        [class.disabled]="disabled"
+        (click)="onSave()"
     >
     <fa-icon [icon]="faCheck"></fa-icon>
     </a>
     <a
-        *ngIf="editing"
+        *ngIf="editing && note?.id"
         class="undo-button right"
         title="undo all changes"
         [class.disabled]="disabled"
