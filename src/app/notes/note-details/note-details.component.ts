@@ -49,7 +49,7 @@ export class NoteDetailsComponent implements OnInit, AfterViewInit {
     }
 
     public saveNote(): void {
-        if (this.noteForm.invalid) return;
+        if (this.noteForm.invalid || this.isLoading) return;
 
         if (this.note) {
             this.updateNote();
