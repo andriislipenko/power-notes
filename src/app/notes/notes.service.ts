@@ -17,6 +17,10 @@ export class NotesService {
         return this.http.get<Note>(`${this.notesUrl}/${id}`)
     }
 
+    public searchNoteByTitle(term: string): Observable<Note[]> {
+        return this.http.get<Note[]>(`${this.notesUrl}?title=${term}`);
+    }
+
     public addNote(note: Note): Observable<Note> {
         note.timestamp = new Date();
         return this.http.post<Note>(this.notesUrl, note);

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { faPlus, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { faPlus, IconDefinition, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -8,7 +8,10 @@ import { Router, ActivatedRoute } from '@angular/router';
     styleUrls: ['./control-bar.component.scss'],
 })
 export class ControlBarComponent {
+    @Output() search: EventEmitter<string> = new EventEmitter();
+
     public readonly faPlus: IconDefinition = faPlus;
+    public readonly faSearch: IconDefinition = faSearch;
 
     constructor(
         private router: Router,
@@ -17,5 +20,9 @@ export class ControlBarComponent {
 
     public createNote(): void {
         this.router.navigate(['note'], { relativeTo: this.route });
+    }
+
+    public onSearch(term: string): void {
+        this.search.emit(term);
     }
 }

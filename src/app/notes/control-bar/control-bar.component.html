@@ -1,3 +1,18 @@
 <div class="control-bar-container">
+    <div class="search-container">
+        <span>
+            <fa-icon class="search-icon" [icon]="faSearch"></fa-icon>
+        </span>
+        <span>
+            <input
+                #searchInput
+                class="search-input"
+                name="search"
+                type="text"
+                (input)="onSearch(searchInput.value)"
+                placeholder="Search"
+            />
+        </span>
+    </div>
     <a class="new-button" (click)="createNote()"><fa-icon [icon]="faPlus"></fa-icon></a>
 </div>
