@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from "rxjs";
-import { Note } from "./entities/note";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Note } from './entities/note';
 
 @Injectable()
 export class NotesService {
@@ -16,7 +16,7 @@ export class NotesService {
     }
 
     public getNote(id: number): Observable<Note> {
-        return this.http.get<Note>(`${this.notesUrl}/${id}`)
+        return this.http.get<Note>(`${this.notesUrl}/${id}`);
     }
 
     public searchNoteByTitle(term: string): Observable<Note[]> {

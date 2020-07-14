@@ -10,17 +10,19 @@ import { NotesModule } from './notes/notes.module';
 import { InMemoryNotesDbService } from './in-memory-notes-db.service';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryNotesDbService),
-    NotesModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        HttpClientInMemoryWebApiModule.forRoot(InMemoryNotesDbService),
+        NotesModule,
+    ],
+    providers: [],
+    bootstrap: [
+        AppComponent
+    ],
 })
-export class AppModule { }
+export class AppModule {}

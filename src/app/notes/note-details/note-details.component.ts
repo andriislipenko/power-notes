@@ -1,4 +1,10 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from "@angular/core";
+import {
+    Component,
+    OnInit,
+    ViewChild,
+    ElementRef,
+    AfterViewInit,
+} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { NotesService } from '../notes.service';
@@ -8,9 +14,9 @@ import { finalize } from 'rxjs/operators';
 import { whiteSpaceValidator } from '../../shared/whitespace-validator';
 
 @Component({
-    selector: "app-note-details",
-    templateUrl: "./note-details.component.html",
-    styleUrls: ["./note-details.component.scss"],
+    selector: 'app-note-details',
+    templateUrl: './note-details.component.html',
+    styleUrls: ['./note-details.component.scss'],
 })
 export class NoteDetailsComponent implements OnInit, AfterViewInit {
     @ViewChild('text')
@@ -56,11 +62,12 @@ export class NoteDetailsComponent implements OnInit, AfterViewInit {
 
     public deleteNote(): void {
         if (this.isLoading) return;
-        
+
         this.isLoading = true;
 
-        this.notesService.deleteNote(this.note.id)
-            .pipe(finalize(() => this.isLoading = false))
+        this.notesService
+            .deleteNote(this.note.id)
+            .pipe(finalize(() => (this.isLoading = false)))
             .subscribe(() => this.goBack());
     }
 
@@ -72,8 +79,9 @@ export class NoteDetailsComponent implements OnInit, AfterViewInit {
         let noteUpdate: Note = { ...this.note };
         noteUpdate.done = !noteUpdate.done;
 
-        this.notesService.updateNote(noteUpdate)
-            .pipe(finalize(() => this.isLoading = false))
+        this.notesService
+            .updateNote(noteUpdate)
+            .pipe(finalize(() => (this.isLoading = false)))
             .subscribe(() => {
                 this.note = noteUpdate;
             });
@@ -87,7 +95,7 @@ export class NoteDetailsComponent implements OnInit, AfterViewInit {
         return this.noteForm.invalid || this.isLoading;
     }
 
-    public setEditStatus(edit: boolean, undo:boolean = false): void {
+    public setEditStatus(edit: boolean, undo: boolean = false): void {
         this.onEdit = edit;
 
         if (!edit && undo) {
@@ -98,8 +106,9 @@ export class NoteDetailsComponent implements OnInit, AfterViewInit {
     private getNote(): void {
         this.isLoading = true;
 
-        this.notesService.getNote(this.currentNoteId)
-            .pipe(finalize(() => this.isLoading = false))
+        this.notesService
+            .getNote(this.currentNoteId)
+            .pipe(finalize(() => (this.isLoading = false)))
             .subscribe((note: Note) => {
                 this.setCurrentNote(note);
             });
@@ -108,12 +117,13 @@ export class NoteDetailsComponent implements OnInit, AfterViewInit {
     private addNote(): void {
         this.isLoading = true;
 
-        this.notesService.addNote(this.noteForm.getRawValue())
-            .pipe(finalize(() => this.isLoading = false))
+        this.notesService
+            .addNote(this.noteForm.getRawValue())
+            .pipe(finalize(() => (this.isLoading = false)))
             .subscribe((note: Note) => {
                 this.setCurrentNote(note);
                 this.setEditStatus(false);
-            })
+            });
     }
 
     private updateNote(): void {
@@ -124,8 +134,9 @@ export class NoteDetailsComponent implements OnInit, AfterViewInit {
         noteUpdate.timestamp = this.note.timestamp;
         noteUpdate.done = this.note.done;
 
-        this.notesService.updateNote(noteUpdate)
-            .pipe(finalize(() => this.isLoading = false))
+        this.notesService
+            .updateNote(noteUpdate)
+            .pipe(finalize(() => (this.isLoading = false)))
             .subscribe(() => {
                 this.note = noteUpdate;
                 this.setEditStatus(false);
@@ -139,13 +150,15 @@ export class NoteDetailsComponent implements OnInit, AfterViewInit {
 
     private getNoteId(): void {
         this.currentNoteId = +this.route.snapshot.paramMap.get('noteId');
-        this.currentNoteId = isNaN(this.currentNoteId) ? null : this.currentNoteId;
+        this.currentNoteId = isNaN(this.currentNoteId)
+            ? null
+            : this.currentNoteId;
     }
 
     private setForm(note: Note): void {
         this.noteForm.setValue({
             title: note.title,
-            text: note.text
+            text: note.text,
         });
     }
 
@@ -154,13 +167,13 @@ export class NoteDetailsComponent implements OnInit, AfterViewInit {
             if (!this.textArea) return;
             this.textArea.nativeElement.style.height = 'auto';
             this.textArea.nativeElement.style.height = `${this.textArea.nativeElement.scrollHeight}px`;
-        })
+        });
     }
 
     private buildForm(): void {
         this.noteForm = this.formBuilder.group({
             title: ['', [Validators.required, whiteSpaceValidator()]],
-            text: ['']
-        })
+            text: [''],
+        });
     }
 }
