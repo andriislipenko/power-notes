@@ -29,7 +29,7 @@
                 <span class="done-icon">
                     <fa-icon [icon]="faCheckDouble"></fa-icon>
                 </span>
-                <span class="option-title">Make {{note.done ? 'undone' : 'done'}}</span>
+                <span class="option-title">Mark as {{note.done ? 'undone' : 'done'}}</span>
             </div>
             <div
                 *ngIf="isViewing()"
@@ -44,24 +44,6 @@
             </div>
         </div>
     </span>
-    <!-- <span
-        *ngIf="isViewing()"
-        class="delete-button right"
-        title="delete note"
-        [class.disabled]="loading"
-        (click)="onDelete()"
-    >
-        <fa-icon [icon]="faTrashAlt"></fa-icon>
-    </span>
-    <span
-        *ngIf="isViewing()"
-        class="done-button right"
-        title="done"
-        [class.undone]="!note.done"
-        (click)="onDone()"
-    >
-        <fa-icon [icon]="faCheckDouble"></fa-icon>
-    </span> -->
     <span
         *ngIf="editing || !note?.id"
         class="save-button right" 
