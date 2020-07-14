@@ -5,6 +5,8 @@ import { Note } from "./entities/note";
 
 @Injectable()
 export class NotesService {
+    public showDone: boolean = false;
+
     private notesUrl = 'api/notes';
 
     constructor(private http: HttpClient) {}

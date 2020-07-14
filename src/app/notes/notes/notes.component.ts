@@ -11,8 +11,6 @@ import { of } from 'rxjs';
 })
 export class NotesComponent implements OnInit {
     public notes: Note[] = [];
-    
-    public showDone: boolean = false;
 
     constructor(private notesService: NotesService) {}
 
@@ -36,6 +34,7 @@ export class NotesComponent implements OnInit {
             )
             .subscribe((notes: Note[]) => {
                 this.notes = notes;
+                this.sortNotesByTimestamp();
             });
     }
 
@@ -52,6 +51,24 @@ export class NotesComponent implements OnInit {
             .pipe(switchMap((notes: Note[]) => of(notes)))
             .subscribe((notes: Note[]) => {
                 this.notes = notes;
+                this.sortNotesByTimestamp();
             });
+    }
+
+    private sortNotesByTimestamp(): void {
+        this.notes.sort((noteA: Note, noteB: Note) => {
+            let dateA = (new Date(noteA.timestamp)).getTime();
+            let dateB = (new Date(noteB.timestamp)).getTime();
+
+            return dateA > dateB ? -1 : 1;
+        })
+    }
+
+    get showDone(): boolean {
+        return this.notesService.showDone;
+    }
+
+    set showDone(show: boolean) {
+        this.notesService.showDone = show;
     }
 }
