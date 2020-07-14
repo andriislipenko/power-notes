@@ -36,14 +36,18 @@ $contro-bar-content-height: 25px;
         }
     }
 
-    .done-switch-button {
+    .done-switch-button, .new-button {
+        height: 25px;
+        font-size: 22px;
         padding: 5px;
         float: right;
-        color: #aaaaaa;
-        font-size: 22px;
-        height: $contro-bar-content-height;
-        overflow: hidden;
         cursor: pointer;
+        overflow: hidden;
+    }
+
+    .done-switch-button {
+        color: #aaaaaa;
+        height: $contro-bar-content-height;
     }
 
     .show-done {
@@ -52,12 +56,7 @@ $contro-bar-content-height: 25px;
 
     .new-button {
         margin-right: 5px;
-        padding: 5px;
-        float: right;
         color: white;
-        font-size: 22px;
         height: $contro-bar-content-height;
-        overflow: hidden;
-        cursor: pointer;
     }
 }
