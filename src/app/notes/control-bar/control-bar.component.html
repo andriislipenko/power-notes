@@ -14,19 +14,19 @@
             />
         </span>
     </div>
-    <a 
+    <span
         class="new-button" 
         title="create note"
         (click)="createNote()"
         >
         <fa-icon [icon]="faPlus"></fa-icon>
-    </a>
-    <a
+    </span>
+    <span
         class="done-switch-button"
         [class.show-done]="showDone"
         [title]="resolveDoneSwitchTitle()"
         (click)="onToggleDone()"
     >
         <fa-icon [icon]="faCheckDouble"></fa-icon>
-    </a>
+    </span>
 </div>

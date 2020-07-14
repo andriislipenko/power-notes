@@ -1,5 +1,5 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { faCircleNotch, faChevronLeft, faCheck, faTrashAlt, faUndo, faCheckDouble } from '@fortawesome/free-solid-svg-icons';
+import { Component, Input, Output, EventEmitter, HostListener } from '@angular/core';
+import { faCircleNotch, faChevronLeft, faCheck, faTrashAlt, faUndo, faCheckDouble, faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 import { IconDefinition } from '@fortawesome/fontawesome-common-types';
 import { Note } from '../entities/note';
 
@@ -26,16 +26,26 @@ export class NoteDetailsControlsComponent {
     public readonly faCheckDouble: IconDefinition = faCheckDouble;
     public readonly faTrashAlt: IconDefinition = faTrashAlt;
     public readonly faUndo: IconDefinition = faUndo;
+    public readonly faEllipsisV: IconDefinition = faEllipsisV;
+
+    public isOptions: boolean = false;
+
+    @HostListener('document:click')
+    public onDocumentClick(): void {
+        this.isOptions = false;
+    }
 
     public onSave(): void {
         this.save.emit();
     }
 
-    public onDelete(): void {
+    public onDelete(event: MouseEvent): void {
+        event.stopPropagation();
         this.delete.emit();
     }
 
-    public onDone(): void {
+    public onDone(event: MouseEvent): void {
+        event.stopPropagation();
         this.done.emit();
     }
 
@@ -44,11 +54,16 @@ export class NoteDetailsControlsComponent {
         this.undoEdit.emit();
     }
 
-    public onBack(): void {
-        this.back.emit();
+    public toggleOptions(event: MouseEvent): void {
+        event.stopPropagation();
+        this.isOptions = !this.isOptions;
     }
 
     public isViewing(): boolean {
         return this.note && this.note.id && !this.editing;
+    }
+
+    public onBack(): void {
+        this.back.emit();
     }
 }
