@@ -11,6 +11,8 @@ import { of } from 'rxjs';
 })
 export class NotesComponent implements OnInit {
     public notes: Note[] = [];
+    
+    public showDone: boolean = false;
 
     constructor(private notesService: NotesService) {}
 
@@ -35,6 +37,14 @@ export class NotesComponent implements OnInit {
             .subscribe((notes: Note[]) => {
                 this.notes = notes;
             });
+    }
+
+    public isNoteToShow(note: Note): boolean {
+        return !note.done || (note.done && this.showDone);
+    }
+
+    public toggleDone(): void {
+        this.showDone = !this.showDone;
     }
 
     private getNotes(): void {

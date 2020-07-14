@@ -36,6 +36,19 @@ $contro-bar-content-height: 25px;
         }
     }
 
+    .done-switch-button {
+        padding: 5px;
+        float: right;
+        color: #aaaaaa;
+        font-size: 22px;
+        height: $contro-bar-content-height;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    .show-done {
+        color: limegreen;
+    }
 
     .new-button {
         margin-right: 5px;

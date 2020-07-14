@@ -1,4 +1,15 @@
-<app-control-bar (search)="onSearch($event)"></app-control-bar>
+<app-control-bar 
+    [showDone]="showDone" 
+    (search)="onSearch($event)"
+    (toggleDone)="toggleDone()"    
+>
+</app-control-bar>
 <div class="notes-container">
-    <app-note *ngFor="let note of notes" [note]="note"></app-note>
+    <ng-container *ngFor="let note of notes">
+        <app-note
+            *ngIf="isNoteToShow(note)"
+            [note]="note"
+        >
+        </app-note>
+    </ng-container>
 </div>
