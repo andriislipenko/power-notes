@@ -6,14 +6,14 @@
         cursor: pointer;
         color: #333333;
         margin-right: 15px;
-        vertical-align: text-bottom;
+        vertical-align: middle;
     }
 
     .spinner {
         color: gold;
     }
 
-    .save-button, .delete-button, .undo-button, .done-button {
+    .save-button, .undo-button, .options-button {
         cursor: pointer;
         padding-left: 10px;
     }
@@ -26,16 +26,58 @@
         color: lightsalmon;
     }
 
-    .delete-button {
-        color: tomato;
-    }
+    .options-button {
+        position: relative;
+        color: #333333;
+        margin-right: 5px;
 
-    .done-button {
-        color: limegreen;
-    }
+        fa-icon {
+            vertical-align: middle;
+        }
 
-    .undone {
-        color: lightgray;
+        .options {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            box-shadow: 1px 1px 3px 1px #cccccc;
+            font-size: medium;
+            background-color: white;
+            width: max-content;
+            padding: 0 5px;
+
+            .delete-option, .done-option {
+                cursor: pointer;
+                padding: 5px;
+
+                .done-icon, .delete-icon {
+                    display: inline-block;
+                    width: 20px;
+                }
+            }
+
+            .option-title {
+                font-size: small;
+                margin-left: 5px;
+                color: #333333;
+            }
+
+            .delete-option {
+                color: tomato;
+                border-top: 1px solid #cccccc;
+            }
+        
+            .done-option {
+                color: limegreen;
+            }
+        
+            .undone {
+                color: lightgray;
+            }        
+        }
+
+        .hidden {
+            display: none;
+        }
     }
 
     .disabled {

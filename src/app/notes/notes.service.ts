@@ -1,10 +1,12 @@
-import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from "rxjs";
-import { Note } from "./entities/note";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Note } from './entities/note';
 
 @Injectable()
 export class NotesService {
+    public showDone: boolean = false;
+
     private notesUrl = 'api/notes';
 
     constructor(private http: HttpClient) {}
@@ -14,7 +16,11 @@ export class NotesService {
     }
 
     public getNote(id: number): Observable<Note> {
-        return this.http.get<Note>(`${this.notesUrl}/${id}`)
+        return this.http.get<Note>(`${this.notesUrl}/${id}`);
+    }
+
+    public searchNoteByTitle(term: string): Observable<Note[]> {
+        return this.http.get<Note[]>(`${this.notesUrl}?title=${term}`);
     }
 
     public addNote(note: Note): Observable<Note> {

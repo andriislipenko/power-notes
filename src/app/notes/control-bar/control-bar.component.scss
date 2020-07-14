@@ -1,15 +1,63 @@
+$contro-bar-content-height: 25px;
+
 .control-bar-container {
     position: fixed;
     top: 0;
     width: 100%;
     background-color: #e0e0e0;
 
-    .new-button {
+    .search-container {
+        display: inline-block;
+        height: $contro-bar-content-height;
+        margin: 5px;
+        
+        span {
+            line-height: $contro-bar-content-height;
+        }
+
+        .search-icon {
+            color: #333333;
+            margin: 5px;
+        }
+
+        .search-input {
+            background-color: #e0e0e0;
+            font-size: medium;
+            border: none;
+            outline: none;
+            border-bottom: 1px solid #cccccc;
+            width: 180px
+        }
+
+        @media only screen and (min-width: 600px) {
+            .search-input {
+                width: 220px;
+            }
+        }
+    }
+
+    .done-switch-button {
         padding: 5px;
+        float: right;
+        color: #aaaaaa;
+        font-size: 22px;
+        height: $contro-bar-content-height;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    .show-done {
+        color: limegreen;
+    }
+
+    .new-button {
         margin-right: 5px;
+        padding: 5px;
         float: right;
         color: white;
         font-size: 22px;
+        height: $contro-bar-content-height;
+        overflow: hidden;
         cursor: pointer;
     }
 }

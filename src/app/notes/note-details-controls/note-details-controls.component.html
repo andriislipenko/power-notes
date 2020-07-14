@@ -1,32 +1,50 @@
 <div class="node-details-controls-container">
-    <a class="back-button" title="back" (click)="onBack()">
+    <span class="back-button" title="back" (click)="onBack()">
         <fa-icon [icon]="faChevronLeft"></fa-icon>
-    </a>
+    </span>
     <fa-icon
         class="spinner" 
         *ngIf="loading"
         [icon]="faCircleNotch" 
         [spin]="true" 
     ></fa-icon>
-    <a
+    <span
         *ngIf="isViewing()"
-        class="delete-button right"
-        title="delete note"
-        [class.disabled]="loading"
-        (click)="onDelete()"
+        class="options-button right"
+        title="options"
+        (click)="toggleOptions($event)"
     >
-        <fa-icon [icon]="faTrashAlt"></fa-icon>
-    </a>
-    <a
-        *ngIf="isViewing()"
-        class="done-button right"
-        title="done"
-        [class.undone]="!note.done"
-        (click)="onDone()"
-    >
-        <fa-icon [icon]="faCheckDouble"></fa-icon>
-    </a>
-    <a
+        <fa-icon [icon]="faEllipsisV"></fa-icon>
+        <div
+            class="options"
+            [class.hidden]="!isOptions"
+            title=""
+        >
+            <div
+                *ngIf="isViewing()"
+                class="done-option"
+                [class.undone]="!note.done"
+                (click)="onDone($event)"
+            >
+                <span class="done-icon">
+                    <fa-icon [icon]="faCheckDouble"></fa-icon>
+                </span>
+                <span class="option-title">Mark as {{note.done ? 'undone' : 'done'}}</span>
+            </div>
+            <div
+                *ngIf="isViewing()"
+                class="delete-option"
+                [class.disabled]="loading"
+                (click)="onDelete($event)"
+            >
+                <span class="delete-icon">
+                    <fa-icon [icon]="faTrashAlt"></fa-icon>
+                </span>
+                <span class="option-title">Remove note</span>
+            </div>
+        </div>
+    </span>
+    <span
         *ngIf="editing || !note?.id"
         class="save-button right" 
         title="save changes"
@@ -34,8 +52,8 @@
         (click)="onSave()"
     >
     <fa-icon [icon]="faCheck"></fa-icon>
-    </a>
-    <a
+    </span>
+    <span
         *ngIf="editing && note?.id"
         class="undo-button right"
         title="undo all changes"
@@ -43,5 +61,5 @@
         (click)="onUndoEdit()"
     >
         <fa-icon [icon]="faUndo"></fa-icon>
-    </a>
+    </span>
 </div>
