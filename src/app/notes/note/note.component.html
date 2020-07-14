@@ -1,0 +1,20 @@
+<div class="note-container" (click)="goToDetails()">
+    <div class="title">{{note.title}}</div>
+    <div class="text-container">
+        <div 
+            class="text" 
+            [innerText]="note.text" 
+        ></div> 
+    </div>
+    <div class="status-container">
+        <span class="timestamp">
+            {{note?.timestamp | date : "dd.MM.yy HH:mm"}}
+        </span>
+        <fa-icon 
+            *ngIf="note.done"
+            class="done"
+            title="Done!"
+            [icon]="faCheckDouble"
+        ></fa-icon>
+    </div>
+</div>

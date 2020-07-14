@@ -1,0 +1,58 @@
+[
+    { 
+        "id": 1, 
+        "title": "Demo note", 
+        "text": "This note exists for demonstration purposes!\n  This note exists for demonstration purposes!\nThis note exists for demonstration purposes!\nThis note exists for demonstration purposes!\nThis note exists for demonstration purposes!",
+        "timestamp": "2020-07-13T14:35:03.380Z",
+        "done": false
+    },
+    { 
+        "id": 2, 
+        "title": "Demo note 2", 
+        "text": "This note exists for demonstration purposes!\nThis note exists for demonstration purposes!\nThis note exists for demonstration purposes!",
+        "timestamp": "2020-07-13T14:35:03.380Z",
+        "done": true
+    },
+    { 
+        "id": 3, 
+        "title": "Demo note 3", 
+        "text": "This note exists for demonstration purposes!\nThis note exists for demonstration purposes!\nThis note exists for demonstration purposes!",
+        "timestamp": "2020-07-13T14:35:03.380Z",
+        "done": false
+    },
+    { 
+        "id": 4, 
+        "title": "Loooooong title demo note 4", 
+        "text": "This note exists for demonstration purposes!\nThis note exists for demonstration purposes!\nThis note exists for demonstration purposes!",
+        "timestamp": "2020-07-13T14:35:03.380Z",
+        "done": false
+    },
+    { 
+        "id": 5, 
+        "title": "Demo note 5", 
+        "text": "This note exists for demonstration purposes!\nThis note exists for demonstration purposes!\nThis note exists for demonstration purposes!",
+        "timestamp": "2020-07-13T14:35:03.380Z",
+        "done": true
+    },
+    { 
+        "id": 6, 
+        "title": "Demo note 6", 
+        "text": "This note exists for demonstration purposes!\nThis note exists for demonstration purposes!\nThis note exists for demonstration purposes!",
+        "timestamp": "2020-07-13T14:35:03.380Z",
+        "done": false
+    },
+    { 
+        "id": 7, 
+        "title": "Demo note 7", 
+        "text": "This note exists for demonstration purposes!\nThis note exists for demonstration purposes!\nThis note exists for demonstration purposes!",
+        "timestamp": "2020-07-13T14:35:03.380Z",
+        "done": false
+    },
+    { 
+        "id": 8, 
+        "title": "Demo note 8", 
+        "text": "This note exists for demonstration purposes!\nThis note exists for demonstration purposes!\nThis note exists for demonstration purposes!",
+        "timestamp": "2020-07-13T14:35:03.380Z",
+        "done": false
+    }
+]

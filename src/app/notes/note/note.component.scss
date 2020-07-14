@@ -1,0 +1,53 @@
+$base-background-color: #f0f0f0;
+$title-base-background-color: #e0e0e0;
+
+$text-container-height: 100px;
+$text-line-height: $text-container-height / 5;
+
+.note-container {
+    background-color: $base-background-color;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 1px 1px 3px 1px #cccccc;
+
+    &:hover {
+        box-shadow: 1px 2px 3px 2px #cccccc;
+    }
+
+    .title {
+        padding: 10px 10px 7px;
+        background-color: $title-base-background-color;
+
+        font-weight: bold;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .text-container {
+        padding: 10px;
+        height: $text-container-height;
+
+        .text {
+            overflow: hidden;
+            height: inherit;
+            line-height: $text-line-height;
+        }
+    }
+
+    .status-container {
+        padding: 5px;
+        padding-top: 0;
+        font-family: monospace;
+        
+        .timestamp {
+            font-size: x-small;
+        }
+
+        .done {
+            float: right;
+            color: limegreen;
+            font-size: small;
+        }
+    }
+}

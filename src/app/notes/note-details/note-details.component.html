@@ -1,0 +1,36 @@
+<div class="note-details-container">
+    <app-note-details-controls
+        [note]="note"
+        [disabled]="isDisabled()"
+        [loading]="isLoading"
+        [editing]="onEdit"
+        (back)="goBack()"
+        (save)="saveNote()"
+        (delete)="deleteNote()"
+        (done)="makeDone()"
+        (undoEdit)="setEditStatus(false, true)"
+    ></app-note-details-controls>
+    <form [formGroup]="noteForm">
+        <div class="title-row">
+            <input
+                name="title" 
+                type="text"
+                placeholder="Title"
+                formControlName="title"
+                class="title"
+                autocomplete="off"
+                (focus)="setEditStatus(true)"
+            />
+        </div>
+        <div class="text-container">
+            <textarea
+                #text
+                name="text"
+                placeholder="Text"
+                class="text"
+                formControlName="text"
+                (focus)="setEditStatus(true)"
+            ></textarea>
+        </div>
+    </form>
+</div>
