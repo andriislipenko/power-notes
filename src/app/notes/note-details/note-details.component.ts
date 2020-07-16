@@ -143,7 +143,7 @@ export class NoteDetailsComponent implements OnInit, AfterViewInit {
         let noteUpdate: Note = { ...this.note };
 
         if (statuses) {
-            noteUpdate.done = statuses.done ? statuses.done : noteUpdate.done;
+            noteUpdate.done = 'done' in statuses ? statuses.done : noteUpdate.done;
             noteUpdate.color = statuses.color ? statuses.color : noteUpdate.color
         }
 
