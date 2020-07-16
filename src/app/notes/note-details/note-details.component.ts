@@ -72,19 +72,11 @@ export class NoteDetailsComponent implements OnInit, AfterViewInit {
     }
 
     public makeDone(): void {
-        if (this.isLoading) return;
+        this.updateNoteStatuses({ done: !this.note.done });
+    }
 
-        this.isLoading = true;
-
-        let noteUpdate: Note = { ...this.note };
-        noteUpdate.done = !noteUpdate.done;
-
-        this.notesService
-            .updateNote(noteUpdate)
-            .pipe(finalize(() => (this.isLoading = false)))
-            .subscribe(() => {
-                this.note = noteUpdate;
-            });
+    public setColor(color): void {
+        this.updateNoteStatuses({ color });
     }
 
     public goBack(): void {
@@ -140,6 +132,26 @@ export class NoteDetailsComponent implements OnInit, AfterViewInit {
             .subscribe(() => {
                 this.note = noteUpdate;
                 this.setEditStatus(false);
+            });
+    }
+
+    private updateNoteStatuses(statuses: { done?: boolean, color?: string }): void {
+        if (this.isLoading) return;
+
+        this.isLoading = true;
+
+        let noteUpdate: Note = { ...this.note };
+
+        if (statuses) {
+            noteUpdate.done = statuses.done ? statuses.done : noteUpdate.done;
+            noteUpdate.color = statuses.color ? statuses.color : noteUpdate.color
+        }
+
+        this.notesService
+            .updateNote(noteUpdate)
+            .pipe(finalize(() => (this.isLoading = false)))
+            .subscribe(() => {
+                this.note = noteUpdate;
             });
     }
 

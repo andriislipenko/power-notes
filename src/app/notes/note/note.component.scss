@@ -1,11 +1,7 @@
-$base-background-color: #f0f0f0;
-$title-base-background-color: #e0e0e0;
-
 $text-container-height: 100px;
 $text-line-height: $text-container-height / 5;
 
 .note-container {
-    background-color: $base-background-color;
     cursor: pointer;
     user-select: none;
     box-shadow: 1px 1px 3px 1px #cccccc;
@@ -16,7 +12,6 @@ $text-line-height: $text-container-height / 5;
 
     .title {
         padding: 10px 10px 7px;
-        background-color: $title-base-background-color;
 
         font-weight: bold;
         white-space: nowrap;

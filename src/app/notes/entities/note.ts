@@ -4,4 +4,5 @@ export class Note {
     text: string = '';
     timestamp: Date | string;
     done: boolean = false;
+    color?: string;
 }

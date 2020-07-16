@@ -44,6 +44,12 @@
             </div>
         </div>
     </span>
+    <app-color-picker 
+        *ngIf="isViewing()"
+        class="color-picker right"
+        [color]="note?.color" 
+        (pickColor)="setColor($event)"
+    ></app-color-picker>
     <span
         *ngIf="editing || !note?.id"
         class="save-button right" 

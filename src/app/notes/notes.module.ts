@@ -8,6 +8,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ControlBarComponent } from './control-bar/control-bar.component';
 import { NoteDetailsControlsComponent } from './note-details-controls/note-details-controls.component';
+import { SharedModule } from '../shared/shared.module'
 
 @NgModule({
     declarations: [
@@ -21,7 +22,8 @@ import { NoteDetailsControlsComponent } from './note-details-controls/note-detai
         CommonModule, 
         FormsModule,
         ReactiveFormsModule,
-        FontAwesomeModule
+        FontAwesomeModule,
+        SharedModule
     ],
     providers: [
         NotesService
