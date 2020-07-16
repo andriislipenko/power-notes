@@ -121,10 +121,11 @@ export class NoteDetailsComponent implements OnInit, AfterViewInit {
     private updateNote(): void {
         this.isLoading = true;
 
-        let noteUpdate: Note = this.noteForm.getRawValue();
-        noteUpdate.id = this.note.id;
-        noteUpdate.timestamp = this.note.timestamp;
-        noteUpdate.done = this.note.done;
+        let formValues: Note = this.noteForm.getRawValue();
+        let noteUpdate: Note = this.note;
+
+        noteUpdate.title = formValues.title;
+        noteUpdate.text = formValues.text;
 
         this.notesService
             .updateNote(noteUpdate)
