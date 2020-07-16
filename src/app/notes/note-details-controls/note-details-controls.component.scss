@@ -13,7 +13,7 @@
         color: gold;
     }
 
-    .save-button, .undo-button, .options-button {
+    .save-button, .undo-button, .options-button, .color-picker {
         cursor: pointer;
         padding-left: 10px;
     }
@@ -24,6 +24,14 @@
 
     .undo-button {
         color: lightsalmon;
+    }
+
+    .color-picker {
+        padding-right: 5px;
+
+        .color-picker-container {
+            vertical-align: text-bottom;
+        }
     }
 
     .options-button {

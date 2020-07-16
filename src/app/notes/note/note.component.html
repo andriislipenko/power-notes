@@ -1,5 +1,18 @@
-<div class="note-container" (click)="goToDetails()">
-    <div class="title">{{note.title}}</div>
+<div 
+    class="note-container"
+    (click)="goToDetails()"
+    [ngStyle]="{
+        'background-color': resolveBackgroundColor()
+    }"
+>
+    <div
+        class="title"
+        [ngStyle]="{
+            'background-color': resolveBackgroundColor(true)
+        }"
+    >
+        {{note.title}}
+    </div>
     <div class="text-container">
         <div 
             class="text" 

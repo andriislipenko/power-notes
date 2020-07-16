@@ -11,21 +11,24 @@
         "title": "Demo note 2", 
         "text": "This note exists for demonstration purposes!\nThis note exists for demonstration purposes!\nThis note exists for demonstration purposes!",
         "timestamp": "2020-07-13T14:35:03.380Z",
-        "done": true
+        "done": true,
+        "color": "#98fb98"
     },
     { 
         "id": 3, 
         "title": "Demo note 3", 
         "text": "This note exists for demonstration purposes!\nThis note exists for demonstration purposes!\nThis note exists for demonstration purposes!",
         "timestamp": "2020-07-13T14:35:03.380Z",
-        "done": false
+        "done": false,
+        "color": "#afeeee"
     },
     { 
         "id": 4, 
         "title": "Loooooong title demo note 4", 
         "text": "This note exists for demonstration purposes!\nThis note exists for demonstration purposes!\nThis note exists for demonstration purposes!",
         "timestamp": "2020-07-13T14:35:03.380Z",
-        "done": false
+        "done": false,
+        "color": "#fa8072"
     },
     { 
         "id": 5, 

@@ -1,0 +1,17 @@
+.color-picker-container {
+    display: inline-block;
+    overflow: hidden;
+    box-shadow: 0 0 1px 2px #eeeeee;
+    transition: all ease-out 0.5s;
+
+    .color {
+        float: left;
+        border-radius: 50%;
+        cursor: pointer;
+        
+        &:last-child {
+            margin: 0 !important;
+        }
+    }
+
+}

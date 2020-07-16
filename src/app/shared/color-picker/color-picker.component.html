@@ -1,0 +1,21 @@
+<div 
+    class="color-picker-container"
+    [ngStyle]="{
+        'width': calculatePickerWidth() + 'px',
+        'height': size + 'px',
+        'border-radius': size + 'px'
+    }"
+>
+    <div
+        *ngFor="let color of DEFAULT_COLORS"
+        class="color"
+        [ngStyle]="{
+            'background-color': color,
+            'width': size + 'px',
+            'height': size + 'px',
+            'margin-right': DEFAULT_MARGIN + 'px'
+        }"
+        (click)="selectColor(color, $event)"
+    >
+    </div>
+</div>

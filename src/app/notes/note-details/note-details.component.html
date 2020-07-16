@@ -9,6 +9,7 @@
         (delete)="deleteNote()"
         (done)="makeDone()"
         (undoEdit)="setEditStatus(false, true)"
+        (onSetColor)="setColor($event)"
     ></app-note-details-controls>
     <form [formGroup]="noteForm">
         <div class="title-row">

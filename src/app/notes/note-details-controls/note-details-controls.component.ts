@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, HostListener } from '@angular/core';
+import { Component, Input, Output, EventEmitter, HostListener, ViewEncapsulation } from '@angular/core';
 import { faCircleNotch, faChevronLeft, faCheck, faTrashAlt, faUndo, faCheckDouble, faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 import { IconDefinition } from '@fortawesome/fontawesome-common-types';
 import { Note } from '../entities/note';
@@ -7,6 +7,7 @@ import { Note } from '../entities/note';
     selector: 'app-note-details-controls',
     templateUrl: './note-details-controls.component.html',
     styleUrls: ['./note-details-controls.component.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 export class NoteDetailsControlsComponent {
     @Input() note: Note;
@@ -19,6 +20,7 @@ export class NoteDetailsControlsComponent {
     @Output() delete: EventEmitter<void> = new EventEmitter();
     @Output() done: EventEmitter<void> = new EventEmitter();
     @Output() undoEdit: EventEmitter<void> = new EventEmitter();
+    @Output() onSetColor: EventEmitter<string> = new EventEmitter();
 
     public readonly faChevronLeft: IconDefinition = faChevronLeft;
     public readonly faCircleNotch: IconDefinition = faCircleNotch;
@@ -52,6 +54,10 @@ export class NoteDetailsControlsComponent {
     public onUndoEdit(): void {
         if (this.loading) return;
         this.undoEdit.emit();
+    }
+
+    public setColor(color: string): void {
+        this.onSetColor.emit(color);
     }
 
     public toggleOptions(event: MouseEvent): void {
