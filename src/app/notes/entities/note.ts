@@ -1,5 +1,5 @@
 export class Note {
-    id: number;
+    id: string;
     title: string = '';
     text: string = '';
     timestamp: Date | string;

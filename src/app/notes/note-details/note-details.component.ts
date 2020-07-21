@@ -22,7 +22,7 @@ export class NoteDetailsComponent implements OnInit, AfterViewInit {
     @ViewChild('text')
     private textArea: ElementRef;
 
-    public currentNoteId: number;
+    public currentNoteId: string;
     public note: Note;
 
     public noteForm: FormGroup;
@@ -162,10 +162,7 @@ export class NoteDetailsComponent implements OnInit, AfterViewInit {
     }
 
     private getNoteId(): void {
-        this.currentNoteId = +this.route.snapshot.paramMap.get('noteId');
-        this.currentNoteId = isNaN(this.currentNoteId)
-            ? null
-            : this.currentNoteId;
+        this.currentNoteId = this.route.snapshot.paramMap.get('noteId');
     }
 
     private setForm(note: Note): void {
