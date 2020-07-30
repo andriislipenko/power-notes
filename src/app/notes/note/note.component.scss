@@ -1,13 +1,17 @@
 $text-container-height: 100px;
 $text-line-height: $text-container-height / 5;
 
+:host {
+    perspective: 500px;
+}
+
 .note-container {
     cursor: pointer;
     user-select: none;
     box-shadow: 1px 1px 3px 1px #cccccc;
 
     &:hover {
-        box-shadow: 1px 2px 3px 2px #cccccc;
+        animation: hover-move .5s forwards ease-out;
     }
 
     .title {
@@ -45,5 +49,22 @@ $text-line-height: $text-container-height / 5;
             color: limegreen;
             font-size: small;
         }
+    }
+}
+
+@keyframes hover-move {
+    0% {
+        transform: translate3d(0, 0, 5px);
+    }
+    15% {
+        transform: rotate3d(.5, -1, 0, 6deg) translate3d(0, 0, 5px);
+    }
+    30% {
+        transform: rotate3d(.5, 1, 0, 6deg) translate3d(0, 0, 5px);
+    }
+    45% {
+        transform: rotate3d(1, 0, 0, 3deg) translate3d(0, 0, 10px);
+    }
+    100% {
     }
 }
