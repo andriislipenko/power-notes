@@ -4,7 +4,6 @@ $contro-bar-content-height: 25px;
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #e0e0e0;
 
     .search-container {
         display: inline-block;
@@ -21,7 +20,6 @@ $contro-bar-content-height: 25px;
         }
 
         .search-input {
-            background-color: #e0e0e0;
             font-size: medium;
             border: none;
             outline: none;
@@ -36,27 +34,18 @@ $contro-bar-content-height: 25px;
         }
     }
 
-    .done-switch-button, .new-button {
+    .done-switch-button {
         height: 25px;
         font-size: 22px;
         padding: 5px;
         float: right;
         cursor: pointer;
         overflow: hidden;
-    }
-
-    .done-switch-button {
         color: #aaaaaa;
         height: $contro-bar-content-height;
     }
 
     .show-done {
         color: limegreen;
-    }
-
-    .new-button {
-        margin-right: 5px;
-        color: white;
-        height: $contro-bar-content-height;
     }
 }

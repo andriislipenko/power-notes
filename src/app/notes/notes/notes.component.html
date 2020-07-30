@@ -5,6 +5,7 @@
 >
 </app-control-bar>
 <div class="notes-container">
+    <app-note></app-note>
     <ng-container *ngFor="let note of notes">
         <app-note
             *ngIf="isNoteToShow(note)"
