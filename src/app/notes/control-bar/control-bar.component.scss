@@ -1,30 +1,26 @@
-$contro-bar-content-height: 25px;
-
 .control-bar-container {
     position: fixed;
     top: 0;
     width: 100%;
+    background-color: #ffffffe0;
+    z-index: 1;
+    padding: 5px;
 
     .search-container {
-        display: inline-block;
-        height: $contro-bar-content-height;
+        display: block;
         margin: 5px;
         
-        span {
-            line-height: $contro-bar-content-height;
-        }
-
-        .search-icon {
-            color: #333333;
-            margin: 5px;
-        }
-
         .search-input {
             font-size: medium;
             border: none;
             outline: none;
             border-bottom: 1px solid #cccccc;
-            width: 180px
+            width: 180px;
+            background-color: inherit;
+        }
+
+        .search-input::placeholder {
+            color: #888888;
         }
 
         @media only screen and (min-width: 600px) {
@@ -32,20 +28,5 @@ $contro-bar-content-height: 25px;
                 width: 220px;
             }
         }
-    }
-
-    .done-switch-button {
-        height: 25px;
-        font-size: 22px;
-        padding: 5px;
-        float: right;
-        cursor: pointer;
-        overflow: hidden;
-        color: #aaaaaa;
-        height: $contro-bar-content-height;
-    }
-
-    .show-done {
-        color: limegreen;
     }
 }
