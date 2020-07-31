@@ -5,11 +5,13 @@
     background-color: #ffffffe0;
     z-index: 1;
     padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     .search-container {
-        display: block;
         margin: 5px;
-        
+
         .search-input {
             font-size: medium;
             border: none;
@@ -27,6 +29,23 @@
             .search-input {
                 width: 220px;
             }
+        }
+    }
+
+    .options-container {
+        position: relative;
+        margin-right: 10px;
+
+        .options-trigger {
+            font-size: larger;
+            cursor: pointer;
+        }
+
+        .options {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: white;
         }
     }
 }

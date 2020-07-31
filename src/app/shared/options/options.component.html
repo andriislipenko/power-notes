@@ -1,0 +1,20 @@
+<div class="options-container">
+    <div
+        class="options"
+        [class.hidden]="hidden"
+        title="options"
+    >
+        <div
+            class="option"
+            *ngFor="let option of options"
+            [style.color]="option.color"
+            [class.ruler]="option.ruler"
+            (click)="onSelect($event, option)"
+        >
+            <span class="option-icon">
+                <fa-icon [icon]="option.icon"></fa-icon>
+            </span>
+            <span class="option-title">{{option.title}}</span>
+        </div>
+    </div>
+</div>

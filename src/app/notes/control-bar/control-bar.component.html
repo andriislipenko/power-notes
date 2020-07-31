@@ -10,4 +10,15 @@
             autocomplete="off"
         />
     </div>
+    <div class="options-container">
+        <div class="options-trigger" (click)="toggleOptions($event)">
+            <fa-icon [icon]="faEllipsisV"></fa-icon>
+        </div>
+        <app-options
+            [hidden]="!isOptions"
+            [options]="options"
+            (select)="onSelectOption($event)"
+        >
+        </app-options>
+    </div>
 </div>
