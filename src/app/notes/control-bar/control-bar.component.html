@@ -1,33 +1,27 @@
 <div class="control-bar-container">
     <div class="search-container">
-        <span>
-            <fa-icon class="search-icon" [icon]="faSearch"></fa-icon>
-        </span>
-        <span>
-            <input
-                #searchInput
-                class="search-input"
-                name="search"
-                type="text"
-                (input)="onSearch(searchInput.value)"
-                placeholder="Search"
-                autocomplete="off"
-            />
-        </span>
+        <input
+            #searchInput
+            class="search-input"
+            name="search"
+            type="text"
+            (input)="onSearch(searchInput.value)"
+            placeholder="Search"
+            autocomplete="off"
+        />
     </div>
-    <span
-        class="new-button" 
-        title="create note"
-        (click)="createNote()"
-        >
-        <fa-icon [icon]="faPlus"></fa-icon>
-    </span>
-    <span
-        class="done-switch-button"
-        [class.show-done]="showDone"
-        [title]="resolveDoneSwitchTitle()"
-        (click)="onToggleDone()"
+    <div 
+        class="options-container"
+        title="options"
     >
-        <fa-icon [icon]="faCheckDouble"></fa-icon>
-    </span>
+        <div class="options-trigger" (click)="toggleOptions($event)">
+            <fa-icon [icon]="faEllipsisV"></fa-icon>
+        </div>
+        <app-options
+            [hidden]="!isOptions"
+            [options]="options"
+            (select)="onSelectOption($event)"
+        >
+        </app-options>
+    </div>
 </div>

@@ -1,6 +1,7 @@
-import { Component, Output, EventEmitter, Input } from '@angular/core';
-import { faPlus, IconDefinition, faSearch, faCheckDouble } from '@fortawesome/free-solid-svg-icons';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, Output, EventEmitter, Input, HostListener } from '@angular/core';
+import { IconDefinition, faSearch, faCheckDouble, faEllipsisV } from '@fortawesome/free-solid-svg-icons';
+import { Option } from 'src/app/shared/entities/option';
+import { OptionActions } from 'src/app/shared/entities/option-actions.enum';
 
 @Component({
     selector: 'app-control-bar',
@@ -8,33 +9,51 @@ import { Router, ActivatedRoute } from '@angular/router';
     styleUrls: ['./control-bar.component.scss'],
 })
 export class ControlBarComponent {
-    @Input() showDone: boolean = false;
+    @Input() set showDone(showDone: boolean) {
+        this.initOptions(showDone);
+    }
 
     @Output() search: EventEmitter<string> = new EventEmitter();
     @Output() toggleDone: EventEmitter<void> = new EventEmitter();
 
-    public readonly faPlus: IconDefinition = faPlus;
     public readonly faSearch: IconDefinition = faSearch;
     public readonly faCheckDouble: IconDefinition = faCheckDouble;
+    public readonly faEllipsisV: IconDefinition = faEllipsisV;
 
-    constructor(
-        private router: Router,
-        private route: ActivatedRoute
-    ) {}
+    public options: Option[];
+    public isOptions: boolean = false;
 
-    public createNote(): void {
-        this.router.navigate(['note'], { relativeTo: this.route });
+    @HostListener('document:click')
+    onDocumentClick() {
+        this.isOptions = false;
     }
 
     public onSearch(term: string): void {
         this.search.emit(term);
     }
 
-    public onToggleDone(): void {
-        this.toggleDone.emit();
+    public onSelectOption(option: Option): void {
+        switch (option.action) {
+            case OptionActions.Done:
+                this.toggleDone.emit();
+                break; 
+        }
+        this.isOptions = false;
     }
 
-    public resolveDoneSwitchTitle(): string {
-        return this.showDone ? 'hide done' : 'show done';
+    public toggleOptions(event: MouseEvent): void {
+        event.stopPropagation();
+        this.isOptions = !this.isOptions;
+    }
+
+    private initOptions(showDone: boolean = false): void {
+        this.options = [
+            new Option(
+                OptionActions.Done,
+                showDone ? 'Hide done' : 'Show done',
+                faCheckDouble,
+                showDone ? 'limegreen' : 'lightgray'
+            )
+        ]
     }
 }

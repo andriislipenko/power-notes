@@ -42,50 +42,6 @@
         fa-icon {
             vertical-align: middle;
         }
-
-        .options {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            box-shadow: 1px 1px 3px 1px #cccccc;
-            font-size: medium;
-            background-color: white;
-            width: max-content;
-            padding: 0 5px;
-
-            .delete-option, .done-option {
-                cursor: pointer;
-                padding: 5px;
-
-                .done-icon, .delete-icon {
-                    display: inline-block;
-                    width: 20px;
-                }
-            }
-
-            .option-title {
-                font-size: small;
-                margin-left: 5px;
-                color: #333333;
-            }
-
-            .delete-option {
-                color: tomato;
-                border-top: 1px solid #cccccc;
-            }
-        
-            .done-option {
-                color: limegreen;
-            }
-        
-            .undone {
-                color: lightgray;
-            }        
-        }
-
-        .hidden {
-            display: none;
-        }
     }
 
     .disabled {

@@ -10,6 +10,7 @@ import { IconDefinition, faCheckDouble } from '@fortawesome/free-solid-svg-icons
 })
 export class NoteComponent implements OnInit {
     public readonly DEFAULT_BACKGROUND_COLOR: string = '#e0e0e0';
+    public readonly BACKGROUND_OPACITY: string = '88';
 
     @Input() note: Note;
 
@@ -25,10 +26,14 @@ export class NoteComponent implements OnInit {
     public resolveBackgroundColor(title: boolean = false): string {
         if (title) return this.note.color || this.DEFAULT_BACKGROUND_COLOR;
         
-        return (this.note.color || this.DEFAULT_BACKGROUND_COLOR) + '88';
+        return (this.note.color || this.DEFAULT_BACKGROUND_COLOR) + this.BACKGROUND_OPACITY;
     }
 
     public goToDetails(): void {
         this.router.navigate([`note/${this.note.id}`], { relativeTo: this.route });
+    }
+
+    public createNote(): void {
+        this.router.navigate(['note'], { relativeTo: this.route });
     }
 }

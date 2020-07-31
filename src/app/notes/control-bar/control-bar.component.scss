@@ -1,32 +1,28 @@
-$contro-bar-content-height: 25px;
-
 .control-bar-container {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #e0e0e0;
+    background-color: #ffffffe0;
+    z-index: 1;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     .search-container {
-        display: inline-block;
-        height: $contro-bar-content-height;
         margin: 5px;
-        
-        span {
-            line-height: $contro-bar-content-height;
-        }
-
-        .search-icon {
-            color: #333333;
-            margin: 5px;
-        }
 
         .search-input {
-            background-color: #e0e0e0;
             font-size: medium;
             border: none;
             outline: none;
             border-bottom: 1px solid #cccccc;
-            width: 180px
+            width: 180px;
+            background-color: inherit;
+        }
+
+        .search-input::placeholder {
+            color: #888888;
         }
 
         @media only screen and (min-width: 600px) {
@@ -36,27 +32,20 @@ $contro-bar-content-height: 25px;
         }
     }
 
-    .done-switch-button, .new-button {
-        height: 25px;
-        font-size: 22px;
-        padding: 5px;
-        float: right;
-        cursor: pointer;
-        overflow: hidden;
-    }
+    .options-container {
+        position: relative;
+        margin-right: 10px;
 
-    .done-switch-button {
-        color: #aaaaaa;
-        height: $contro-bar-content-height;
-    }
+        .options-trigger {
+            font-size: larger;
+            cursor: pointer;
+        }
 
-    .show-done {
-        color: limegreen;
-    }
-
-    .new-button {
-        margin-right: 5px;
-        color: white;
-        height: $contro-bar-content-height;
+        .options {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: white;
+        }
     }
 }

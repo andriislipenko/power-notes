@@ -1,0 +1,38 @@
+.options-container {
+    position: relative;
+
+    .options {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        box-shadow: 1px 1px 3px 1px #cccccc;
+        font-size: medium;
+        background-color: white;
+        width: max-content;
+        padding: 0 5px;  
+        
+        .option {
+            cursor: pointer;
+            padding: 5px;
+
+            .option-icon {
+                display: inline-block;
+                width: 20px;
+            }
+
+            .option-title {
+                font-size: small;
+                margin-left: 5px;
+                color: #333333;
+            }
+        }
+
+        .ruler {
+            border-bottom: 1px solid #cccccc;
+        }
+    }
+
+    .hidden {
+        display: none;
+    }
+}

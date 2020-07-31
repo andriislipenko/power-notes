@@ -15,52 +15,30 @@
         (click)="toggleOptions($event)"
     >
         <fa-icon [icon]="faEllipsisV"></fa-icon>
-        <div
-            class="options"
-            [class.hidden]="!isOptions"
-            title=""
+        <app-options 
+            [hidden]="!isOptions"
+            [options]="options"
+            (select)="onOptionSelected($event)"
         >
-            <div
-                *ngIf="isViewing()"
-                class="done-option"
-                [class.undone]="!note.done"
-                (click)="onDone($event)"
-            >
-                <span class="done-icon">
-                    <fa-icon [icon]="faCheckDouble"></fa-icon>
-                </span>
-                <span class="option-title">Mark as {{note.done ? 'undone' : 'done'}}</span>
-            </div>
-            <div
-                *ngIf="isViewing()"
-                class="delete-option"
-                [class.disabled]="loading"
-                (click)="onDelete($event)"
-            >
-                <span class="delete-icon">
-                    <fa-icon [icon]="faTrashAlt"></fa-icon>
-                </span>
-                <span class="option-title">Remove note</span>
-            </div>
-        </div>
+        </app-options>
     </span>
     <app-color-picker 
         *ngIf="isViewing()"
         class="color-picker right"
-        [color]="note?.color" 
+        [color]="currentNote?.color" 
         (pickColor)="setColor($event)"
     ></app-color-picker>
     <span
-        *ngIf="editing || !note?.id"
+        *ngIf="editing || !currentNote?.id"
         class="save-button right" 
         title="save changes"
         [class.disabled]="disabled"
         (click)="onSave()"
     >
-    <fa-icon [icon]="faCheck"></fa-icon>
+        <fa-icon [icon]="faCheck"></fa-icon>
     </span>
     <span
-        *ngIf="editing && note?.id"
+        *ngIf="editing && currentNote?.id"
         class="undo-button right"
         title="undo all changes"
         [class.disabled]="disabled"

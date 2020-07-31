@@ -1,5 +1,6 @@
 <div 
     class="note-container"
+    *ngIf="note"
     (click)="goToDetails()"
     [ngStyle]="{
         'background-color': resolveBackgroundColor()
@@ -30,4 +31,24 @@
             [icon]="faCheckDouble"
         ></fa-icon>
     </div>
+</div>
+<div 
+    class="note-container"
+    *ngIf="!note"
+    (click)="createNote()"
+    [ngStyle]="{
+        'background-color': DEFAULT_BACKGROUND_COLOR + this.BACKGROUND_OPACITY
+    }"
+    title="new note"
+>
+    <div
+        class="title"
+        [ngStyle]="{
+            'background-color': DEFAULT_BACKGROUND_COLOR
+        }"
+    >
+        &nbsp;
+    </div>
+    <div class="text-container"></div>
+    <div class="status-container">&nbsp;</div>
 </div>
